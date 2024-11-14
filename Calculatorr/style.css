@@ -1,0 +1,122 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1000px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    margin-top: -900px;
+}
+
+#calc {
+    display: none;
+}
+
+.x:hover {
+    background-color: red;
+}
+
+.U:hover {
+    background-color: rgb(83, 80, 80);
+}
+
+._:hover {
+    background-color: rgb(83, 80, 80);
+}
+
+.cim {
+    font-size: 20px;
+}
+
+.calcBut:hover {
+    cursor: pointer;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 90px 100px 90px 90px;
+    background-color: #313335;
+    padding: 5px;
+    border: 1px solid rgb(13, 182, 168);
+    border-radius: 5px;
+    column-gap: 4px;
+    row-gap: 4px;
+}
+
+.grid-item {
+    background-color: rgba(66, 62, 62, 0.8);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.grid-item:hover {
+    background-color: rgba(83, 80, 80, 0.8);
+}
+
+.grid-item-vilagos {
+    background-color: rgba(83, 80, 80, 0.8);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.grid-item-vilagos:hover {
+    background-color: rgba(66, 62, 62, 0.8);
+}
+
+.grid-item-kek {
+    background-color: rgb(13, 182, 168);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.grid-item-kek:hover {
+    background-color: rgb(15, 218, 201);
+}
+
+.grid-nagyobb-item {
+    grid-column: 1/5;
+    height: 40px;
+    font-size: 25px;
+    color: white;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.grid-nagyob-item {
+    grid-column: 1/5;
+    height: 20px;
+    color: rgb(131, 125, 125);
+    display: flex;
+    justify-content: end;
+}
+
+.grid-nagyobb-items {
+    grid-column: 1/5;
+    height: 25px;
+    color: white;
+}
+
+.right {
+    float: right;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-left: 2px;
+}
