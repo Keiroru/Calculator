@@ -1,10 +1,8 @@
 var calcOn = false
 var second = false
+var first = true
 
 var numberArray = [];
-var current;
-var currentLen;
-var clen;
 
 function showCalculator() {
     if (calcOn == false) {
@@ -18,53 +16,72 @@ function showCalculator() {
 }
 
 function getNumber(numberInput) {
-        numberArray.push(numberInput);
-        console.log(numberArray)
-        console.log(numberArray)
-        if (second)
-        {
-            document.getElementById('mainScreen').innerHTML = "";
-        }
-        current = numberInput
-        document.getElementById('mainScreen').innerHTML += numberInput;
-        second = false
-        currentLen += 1;
+    numberArray.push(numberInput);
+    if (second) {
+        document.getElementById('mainScreen').innerHTML = "";
+    }
+    document.getElementById('mainScreen').innerHTML += numberInput;
+    second = false
 };
 
 function getOperator(operatorInput) {
     numberArray.push(operatorInput);
+    let num = numberArray.join('')
+    numberArray = []
+    numberArray.push(num)
     document.getElementById('secondaryScreen').innerHTML = numberArray;
     second = true
-    clen = currentLen;
-    currentLen = 0;
+    first = false
 }
 
-function calculate() {   
+function calculate() {
     let stringArray = numberArray.join('');
     let value = eval(stringArray);;
 
     numberArray = [];
     numberArray.push(value);
 
-    console.log(numberArray)
 
     document.getElementById('mainScreen').innerHTML = value;
     document.getElementById('secondaryScreen').innerHTML = value;
 
+    first = true;
 };
 
 function clearCalculator() {
     document.getElementById('mainScreen').innerHTML = "";
     document.getElementById('secondaryScreen').innerHTML = ""
     numberArray = [];
+    first = true;
+    second = false;
 }
 
 function ceClearCalculator() {
     document.getElementById('mainScreen').innerHTML = "";
-    console.log(numberArray)
-    for (let i = 0; i < clen; i++) {
-        numberArray.splice(numberArray.length - 1)
-    }
-    console.log(numberArray)
+    numberArray = numberArray.splice(0, 1)
+}
 
+function square() {
+    let index = numberArray.length;
+    let toBeSquared = []
+
+    if (first == false) {
+        while (index != 1) {
+            toBeSquared.push(numberArray.splice(1, 1));
+            index = numberArray.length
+        }
+    }
+    else if (first == true) {
+        while (index != 0) {
+            toBeSquared.push(numberArray.splice(0, 1));
+            index = numberArray.length
+        }
+    }
+
+let number = toBeSquared.join('');
+let squared = number * number;
+
+toBeSquared = [];
+document.getElementById('mainScreen').innerHTML = squared;
+numberArray.push(squared)
 }
